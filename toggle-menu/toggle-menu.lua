@@ -43,18 +43,21 @@ function toggle()
 	end
 end
 
+-- ---------------
 
-local action_tbl =
-{
-  ["hide"] = hide,
-  ["show"] = show,
-  ["startup"] = startup,
-  ["toggle"] = toggle,
-}
-
-local func = action_tbl[action]
-if (func) then
-	func()
-else
+if not action then
 	toggle();
+else
+	local action_tbl =
+	{
+	  ["hide"] = hide,
+	  ["show"] = show,
+	  ["startup"] = startup,
+	  ["toggle"] = toggle,
+	}
+
+	local func = action_tbl[action]
+	if (func) then
+		func()
+	end
 end
