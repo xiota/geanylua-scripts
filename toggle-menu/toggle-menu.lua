@@ -1,40 +1,59 @@
-state_file = "/tmp/geany-menu-visible"
+lua_path=geany.appinfo().scriptdir..geany.dirsep
+state_file=lua_path.."toggle_menu-hidden"
 
-function get_menu_visible()
+function is_menu_visible()
 	local state_stat = geany.stat(state_file)
 	if (state_stat) and (state_stat.type == "r") then
-		-- file exists and is a regular file
-		return true
-	else
 		return false
+	else
+		return true
 	end
 end
 
 function hide_menu()
+	geany.status("hide_menu")
+	file = io.open(state_file, "w+")
+	io.close(file)
 	geany.signal("hbox_menubar", "hide")
-	os.remove(state_file)
+	update()
 end
 
 function show_menu()
-	file = io.open(state_file, "w+")
-	io.close(file)
+	geany.status("show_menu")
 	geany.signal("hbox_menubar", "show")
+	os.remove(state_file)
+	update()
 end
 
 function update()
 	geany.signal("vbox1", "style-updated")
-	--geany.signal("notebook1", "style-updated")
-	--geany.signal("notebook_info", "style-updated")
+
 end
 
--- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function init()
+	geany.status("init")
 
-visible = get_menu_visible()
+	if is_menu_visible() then
+		show_menu()
+	else
+		hide_menu()
+	end
 
-if visible then
-	hide_menu()
+	initialize = false
+end
+
+function toggle()
+	geany.status("toggle")
+
+	if is_menu_visible() then
+		hide_menu()
+	else
+		show_menu()
+	end
+end
+
+if initialize then
+	init()
 else
-	show_menu()
+	toggle()
 end
-
-update()
