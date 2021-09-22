@@ -11,7 +11,6 @@ function is_menu_visible()
 end
 
 function hide_menu()
-	geany.status("hide_menu")
 	file = io.open(state_file, "w+")
 	io.close(file)
 	geany.signal("hbox_menubar", "hide")
@@ -19,7 +18,6 @@ function hide_menu()
 end
 
 function show_menu()
-	geany.status("show_menu")
 	geany.signal("hbox_menubar", "show")
 	os.remove(state_file)
 	update()
@@ -27,12 +25,9 @@ end
 
 function update()
 	geany.signal("vbox1", "style-updated")
-
 end
 
 function init()
-	geany.status("init")
-
 	if is_menu_visible() then
 		show_menu()
 	else
@@ -43,8 +38,6 @@ function init()
 end
 
 function toggle()
-	geany.status("toggle")
-
 	if is_menu_visible() then
 		hide_menu()
 	else
