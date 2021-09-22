@@ -1,7 +1,7 @@
 lua_path=geany.appinfo().scriptdir..geany.dirsep
 state_file=lua_path.."toggle_menu-hidden"
 
-function is_menu_visible()
+function is_visible()
 	local state_stat = geany.stat(state_file)
 	if (state_stat) and (state_stat.type == "r") then
 		return false
@@ -10,14 +10,14 @@ function is_menu_visible()
 	end
 end
 
-function hide_menu()
+function hide()
 	file = io.open(state_file, "w+")
 	io.close(file)
 	geany.signal("hbox_menubar", "hide")
 	update()
 end
 
-function show_menu()
+function show()
 	geany.signal("hbox_menubar", "show")
 	os.remove(state_file)
 	update()
@@ -27,26 +27,34 @@ function update()
 	geany.signal("vbox1", "style-updated")
 end
 
-function init()
-	if is_menu_visible() then
-		show_menu()
+function startup()
+	if is_visible() then
+		show()
 	else
-		hide_menu()
+		hide()
 	end
-
-	initialize = false
 end
 
 function toggle()
-	if is_menu_visible() then
-		hide_menu()
+	if is_visible() then
+		hide()
 	else
-		show_menu()
+		show()
 	end
 end
 
-if initialize then
-	init()
+
+local action_tbl =
+{
+  ["hide"] = hide,
+  ["show"] = show,
+  ["startup"] = startup,
+  ["toggle"] = toggle,
+}
+
+local func = action_tbl[action]
+if (func) then
+	func()
 else
-	toggle()
+	toggle();
 end
