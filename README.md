@@ -6,6 +6,8 @@ This repository contains some [GeanyLua](https://plugins.geany.org/geanylua/) sc
 
 * column-markers: Show long-line markers at multiple columns, in different colors. 
 
+* open-config: Open config folder in file manager when preferences button is pressed.
+
 ## Usage
 
 * Please read the [GeanyLua Introduction](https://plugins.geany.org/geanylua/geanylua-intro.html) for general installation and usage instructions.
