@@ -27,7 +27,7 @@ function update()
 	geany.signal("vbox1", "style-updated")
 end
 
-function startup()
+function restore()
 	if is_visible() then
 		show()
 	else
@@ -45,18 +45,18 @@ end
 
 -- ---------------
 
-if not action then
+if not start_action then
 	toggle();
 else
 	local action_tbl =
 	{
 	  ["hide"] = hide,
 	  ["show"] = show,
-	  ["startup"] = startup,
+	  ["restore"] = restore,
 	  ["toggle"] = toggle,
 	}
 
-	local func = action_tbl[action]
+	local func = action_tbl[start_action]
 	if (func) then
 		func()
 	end
