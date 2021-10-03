@@ -2,11 +2,13 @@
 
 This repository contains some [GeanyLua](https://plugins.geany.org/geanylua/) scripts:
 
-* toggle-menu: Hide the menubar.  For those who like minimal interfaces.
+* auto-sidebar: Automatically hide and show the sidebar depending on document type.
 
 * column-markers: Show long-line markers at multiple columns, in different colors. 
 
 * open-config: Open config folder in file manager when preferences button is pressed.
+
+* toggle-menu: Hide the menubar.  For those who like minimal interfaces.
 
 ## Usage
 
@@ -18,7 +20,7 @@ This repository contains some [GeanyLua](https://plugins.geany.org/geanylua/) sc
 
 * When new scripts are added, Geany may need to be restarted.
 
-* When old scripts are modified, Geany *usually* does not need to be restarted.
+* When old scripts are modified, Geany *usually* does *not* need to be restarted.
 
 ## License
 
