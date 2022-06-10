@@ -1,5 +1,5 @@
 lua_path=geany.appinfo().scriptdir..geany.dirsep
-state_file=lua_path.."toggle_menu-hidden"
+state_file=lua_path.."toggle-menu-bar-hidden"
 
 function is_visible()
 	local state_stat = geany.stat(state_file)

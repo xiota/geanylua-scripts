@@ -10,7 +10,7 @@ This repository contains some [GeanyLua](https://plugins.geany.org/geanylua/) sc
 
 * toggle-editor: Hide the editor.  Useful in combination with some sidebar plugins.
 
-* toggle-menu: Hide the menubar.  For those who like minimal interfaces.
+* toggle-menu-bar: Hide the menu bar.  For those who like minimal interfaces.
 
 ## Usage
 
