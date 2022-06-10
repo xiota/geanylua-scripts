@@ -8,6 +8,8 @@ This repository contains some [GeanyLua](https://plugins.geany.org/geanylua/) sc
 
 * open-config: Open config folder in file manager when preferences button is pressed.
 
+* toggle-editor: Hide the editor.  Useful in combination with some sidebar plugins.
+
 * toggle-menu: Hide the menubar.  For those who like minimal interfaces.
 
 ## Usage
