@@ -1,63 +1,20 @@
 lua_path=geany.appinfo().scriptdir..geany.dirsep
-state_file=lua_path.."toggle_editor-hidden"
-
-function is_visible()
-	local state_stat = geany.stat(state_file)
-	if (state_stat) and (state_stat.type == "r") then
-		return false
-	else
-		return true
-	end
-end
-
-function hide()
-	file = io.open(state_file, "w+")
-	io.close(file)
-	geany.signal("notebook1", "hide")
-	update()
-end
-
-function show()
-	geany.signal("notebook1", "show")
-	os.remove(state_file)
-	update()
-end
-
-function update()
-	geany.signal("hpaned1", "style-updated")
-end
-
-function restore()
-	if is_visible() then
-		show()
-	else
-		hide()
-	end
-end
-
-function toggle()
-	if is_visible() then
-		hide()
-	else
-		show()
-	end
-end
+dofile(lua_path.."toggle-functions.lua")
 
 -- ---------------
-
 if not start_action then
-	toggle();
+  editor_toggle();
 else
-	local action_tbl =
-	{
-	  ["hide"] = hide,
-	  ["show"] = show,
-	  ["restore"] = restore,
-	  ["toggle"] = toggle,
-	}
+  local action_tbl =
+  {
+    ["hide"] = editor_hide,
+    ["show"] = editor_show,
+    ["restore"] = editor_restore,
+    ["toggle"] = editor_toggle,
+  }
 
-	local func = action_tbl[start_action]
-	if (func) then
-		func()
-	end
+  local func = action_tbl[start_action]
+  if (func) then
+    func()
+  end
 end

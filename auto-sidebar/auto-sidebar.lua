@@ -2,26 +2,15 @@
   Show/Hide sidebar based on file types in action_tbl
 --]]
 
-function hide_sidebar()
-	geany.signal("notebook3", "hide")
-  update()
-end
-
-function show_sidebar()
-	geany.signal("notebook3", "show")
-  update()
-end
-
-function update()
-  geany.signal("notebook1", "style-updated")
-end
+lua_path=geany.appinfo().scriptdir..geany.dirsep
+dofile(lua_path.."toggle-functions.lua")
 
 -- ----------
 
 local action_tbl =
 {
-  ["HTML"] = show_sidebar,
-  ["Markdown"] = show_sidebar,
+  ["HTML"] = sidebar_show,
+  ["Markdown"] = sidebar_show,
 }
 
 infotable = geany.fileinfo()
@@ -30,7 +19,7 @@ local func = action_tbl[infotable["type"]]
 if (func) then
   func()
 else
-  hide_sidebar()
+  sidebar_hide()
 end
 
 -- uncomment the following line to show the filetype in the status window
