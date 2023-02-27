@@ -2,11 +2,11 @@
 local lua_path = geany.appinfo().scriptdir..geany.dirsep
 
 --[[
-	start_action options:
-		restore - startup with the last menu bar state
-		*hide   - startup with menu bar hidden
-		show    - startup with menu bar visible
-		toggle  - startup with visibility toggled from the last menu bar state
+  start_action options:
+    restore - startup with the last menu bar state
+    *hide   - startup with menu bar hidden
+    show    - startup with menu bar visible
+    toggle  - startup with visibility toggled from the last menu bar state
 --]]
 start_action = "hide"
 
