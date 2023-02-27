@@ -36,6 +36,20 @@ function editor_show()
   update()
 end
 
+function editor_hide_stateless()
+  if not sidebar_is_visible() then
+    sidebar_show_stateless()
+  end
+
+  geany.signal("notebook1", "hide")
+  update()
+end
+
+function editor_show_stateless()
+  geany.signal("notebook1", "show")
+  update()
+end
+
 function editor_restore()
   if editor_is_visible() then
     editor_show()
@@ -66,6 +80,20 @@ end
 function sidebar_show()
   geany.signal("notebook3", "show")
   os.remove(sidebar_state)
+  update()
+end
+
+function sidebar_hide_stateless()
+  if not editor_is_visible() then
+    editor_show_stateless()
+  end
+
+  geany.signal("notebook3", "hide")
+  update()
+end
+
+function sidebar_show_stateless()
+  geany.signal("notebook3", "show")
   update()
 end
 

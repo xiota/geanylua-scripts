@@ -9,8 +9,8 @@ dofile(lua_path.."toggle-functions.lua")
 
 local action_tbl =
 {
-  ["HTML"] = sidebar_show,
-  ["Markdown"] = sidebar_show,
+  ["HTML"] = sidebar_restore,
+  ["Markdown"] = sidebar_restore,
 }
 
 infotable = geany.fileinfo()
@@ -19,7 +19,7 @@ local func = action_tbl[infotable["type"]]
 if (func) then
   func()
 else
-  sidebar_hide()
+  sidebar_hide_stateless()
 end
 
 -- uncomment the following line to show the filetype in the status window
