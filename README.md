@@ -12,6 +12,8 @@ This repository contains some [GeanyLua](https://plugins.geany.org/geanylua/) sc
 
 * toggle-menu-bar: Hide the menu bar.  For those who like minimal interfaces.
 
+* switch-views: Switch among views: editor-only → editor+sidebar → sidebar-only.
+
 ## Usage
 
 * Please read the [GeanyLua Introduction](https://plugins.geany.org/geanylua/geanylua-intro.html) for general installation and usage instructions.
