@@ -1,0 +1,1 @@
+show-editor-sidebar.lua
