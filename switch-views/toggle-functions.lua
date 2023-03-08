@@ -19,6 +19,12 @@ function sidebar_is_visible()
   end
 end
 
+function editor_focus()
+  if editor_is_visible() then
+    geany.keycmd("FOCUS_EDITOR")
+  end
+end
+
 function editor_hide()
   if not sidebar_is_visible() then
     sidebar_show()
@@ -27,13 +33,11 @@ function editor_hide()
   file = io.open(editor_state, "w+")
   io.close(file)
   geany.signal("notebook1", "hide")
-  update()
 end
 
 function editor_show()
   geany.signal("notebook1", "show")
   os.remove(editor_state)
-  update()
 end
 
 function editor_hide_stateless()
@@ -42,12 +46,10 @@ function editor_hide_stateless()
   end
 
   geany.signal("notebook1", "hide")
-  update()
 end
 
 function editor_show_stateless()
   geany.signal("notebook1", "show")
-  update()
 end
 
 function editor_restore()
@@ -66,6 +68,12 @@ function editor_toggle()
   end
 end
 
+function sidebar_focus()
+  if sidebar_is_visible() then
+    geany.keycmd("FOCUS_SIDEBAR")
+  end
+end
+
 function sidebar_hide()
   if not editor_is_visible() then
     editor_show()
@@ -74,13 +82,11 @@ function sidebar_hide()
   file = io.open(sidebar_state, "w+")
   io.close(file)
   geany.signal("notebook3", "hide")
-  update()
 end
 
 function sidebar_show()
   geany.signal("notebook3", "show")
   os.remove(sidebar_state)
-  update()
 end
 
 function sidebar_hide_stateless()
@@ -89,12 +95,10 @@ function sidebar_hide_stateless()
   end
 
   geany.signal("notebook3", "hide")
-  update()
 end
 
 function sidebar_show_stateless()
   geany.signal("notebook3", "show")
-  update()
 end
 
 function sidebar_restore()

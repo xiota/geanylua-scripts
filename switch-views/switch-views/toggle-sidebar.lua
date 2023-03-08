@@ -1,10 +1,11 @@
 lua_path=geany.appinfo().scriptdir..geany.dirsep
 dofile(lua_path.."toggle-functions.lua")
-
 -- ---------------
+
 if not sidebar_start then
   sidebar_toggle();
 else
+  geany.status(sidebar_start)
   local action_tbl =
   {
     ["hide"] = sidebar_hide,
@@ -18,3 +19,5 @@ else
     func()
   end
 end
+
+update()

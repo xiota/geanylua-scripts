@@ -1,6 +1,5 @@
 lua_path=geany.appinfo().scriptdir..geany.dirsep
 dofile(lua_path.."toggle-functions.lua")
-
 -- ---------------
 
 -- editor -> editor+sidebar -> sidebar
@@ -16,3 +15,5 @@ else
   editor_show()
   sidebar_show()
 end
+
+update()

@@ -1,7 +1,7 @@
 lua_path=geany.appinfo().scriptdir..geany.dirsep
 dofile(lua_path.."toggle-functions.lua")
-
 -- ---------------
+
 if not start_action then
   editor_toggle();
 else
@@ -18,3 +18,5 @@ else
     func()
   end
 end
+
+update()

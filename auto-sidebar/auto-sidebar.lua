@@ -4,7 +4,6 @@
 
 lua_path=geany.appinfo().scriptdir..geany.dirsep
 dofile(lua_path.."toggle-functions.lua")
-
 -- ----------
 
 local action_tbl =
@@ -21,6 +20,8 @@ if (func) then
 else
   sidebar_hide_stateless()
 end
+
+update()
 
 -- uncomment the following line to show the filetype in the status window
 -- geany.status(infotable["type"])
