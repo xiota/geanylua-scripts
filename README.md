@@ -16,7 +16,7 @@ This repository contains some [GeanyLua](https://plugins.geany.org/geanylua/) sc
 
 ## Usage
 
-* Please read the [GeanyLua Introduction](https://plugins.geany.org/geanylua/geanylua-intro.html) for general installation and usage instructions.
+* Read the [GeanyLua Introduction](https://plugins.geany.org/geanylua/geanylua-intro.html) for general installation and usage instructions.  If "Lua Script" is not shown in the Plugin Manager, make sure the GeanyLua plugin is installed. See distro-specific documentation for details.
 
 * Scripts are in their own folders for organization, but they were written to be placed directly in the GeanyLua config folder.  On Linux, the folder is located at `~/.config/geany/plugins/geanylua/`
 
