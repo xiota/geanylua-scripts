@@ -1,2 +1,4 @@
 geany.signal("notebook1", "show")
+geany.yield()
 geany.signal("hpaned1", "style-updated")
+geany.yield()

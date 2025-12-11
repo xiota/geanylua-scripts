@@ -14,17 +14,20 @@ function hide()
   file = io.open(state_file, "w+")
   io.close(file)
   geany.signal("hbox_menubar", "hide")
+  geany.yield()
   update()
 end
 
 function show()
   geany.signal("hbox_menubar", "show")
+  geany.yield()
   os.remove(state_file)
   update()
 end
 
 function update()
   geany.signal("vbox1", "style-updated")
+  geany.yield()
 end
 
 function restore()

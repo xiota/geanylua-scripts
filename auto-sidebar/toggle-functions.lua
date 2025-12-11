@@ -33,10 +33,12 @@ function editor_hide()
   file = io.open(editor_state, "w+")
   io.close(file)
   geany.signal("notebook1", "hide")
+  geany.yield()
 end
 
 function editor_show()
   geany.signal("notebook1", "show")
+  geany.yield()
   os.remove(editor_state)
 end
 
@@ -46,10 +48,12 @@ function editor_hide_stateless()
   end
 
   geany.signal("notebook1", "hide")
+  geany.yield()
 end
 
 function editor_show_stateless()
   geany.signal("notebook1", "show")
+  geany.yield()
 end
 
 function editor_restore()
@@ -82,10 +86,12 @@ function sidebar_hide()
   file = io.open(sidebar_state, "w+")
   io.close(file)
   geany.signal("notebook3", "hide")
+  geany.yield()
 end
 
 function sidebar_show()
   geany.signal("notebook3", "show")
+  geany.yield()
   os.remove(sidebar_state)
 end
 
@@ -95,10 +101,12 @@ function sidebar_hide_stateless()
   end
 
   geany.signal("notebook3", "hide")
+  geany.yield()
 end
 
 function sidebar_show_stateless()
   geany.signal("notebook3", "show")
+  geany.yield()
 end
 
 function sidebar_restore()
@@ -119,4 +127,5 @@ end
 
 function update()
   geany.signal("hpaned1", "style-updated")
+  geany.yield()
 end
